@@ -9,7 +9,7 @@ function UserProvider ({children}) {
 
     useEffect(
         () => {
-            const unsubscribe = firebase.auth().onAuthStateChanged((authUSer) => {
+            const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
                 if (authUser) {
                     // User is signed in
                     // Retrieve additional user information like username from Firestore
