@@ -5,7 +5,7 @@ import 'firebase/firestore';
 import UserProvider from './AuthProvider';
 import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import BlogList from './pages/BlogPostList';
+import BlogList from './pages/StorytList';
 
 function App() {
   const user = useContext(UserProvider);
