@@ -67,4 +67,4 @@ function StoryForm () {
     )
 };
 
-export default BlogForm;
+export default StoryForm;

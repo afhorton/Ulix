@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import firebase from 'firebase/auth';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-import { config } from 'localforage';
+import { NavLink } from 'react-router-dom';
 
-//Initialize Firebase
-firebase.initializeAupp(firebase-config.jsx);
+
 
 function SignUp () {
     const [email, setEmail] = useState('');
@@ -21,7 +20,7 @@ function SignUp () {
         const user = userCredential.user;
 
         // Create a user document in Firestore
-        await firebase.firestore().collection('users').doc.(user.id).set({
+        await firebase.firestore().collection('users').doc(user.id).set({
             username,
             email
         });
