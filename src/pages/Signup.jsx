@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
 import { NavLink } from 'react-router-dom';
+import { initializeApp } from 'firebase/app';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import app from '../firebase-config';
 
 
 
@@ -11,19 +12,21 @@ function SignUp () {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
 
-    const handleSignUp = () => {
+    const handleSignUp = async (e) => {
+        e.preventDefault();
         try {
         // Create user with email and password
-        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        const userCredential = await createUserWithEmailAndPassword(email, password);
 
         // Access the authenticated user
         const user = userCredential.user;
 
         // Create a user document in Firestore
-        await firebase.firestore().collection('users').doc(user.id).set({
+        const userDocRef = doc(db, 'users', user.uid);
+        await setDoc(userDocRef, { 
             username,
             email
-        });
+        })
 
         // User signed up successfully
         console.log('User signed up:', user);
@@ -34,7 +37,7 @@ function SignUp () {
             console.log('Error signing up:', error.message);
         }
     };
-}
+
 
 
     return (

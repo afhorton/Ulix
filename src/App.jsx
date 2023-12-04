@@ -7,6 +7,8 @@ import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import StoryList from './pages/StorytList';
 import StoryForm from './pages/StoryForm';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 

@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import { UserContext } from '..AuthProvider';
+import { getFirestore, collection, doc, getDocs } from 'firebase/firestore';
+import { UserContext } from '../AuthProvider';
+import app from '../firebase-config';
 
 function StoryList () {
     const currentUser = useContext(UserContext);
+    const db = getFirestore(app);
 
     const [userPosts, setUserPosts] = useState([]);
 
@@ -13,11 +14,8 @@ function StoryList () {
             if (currentUser) {
                 const fetchUserBlogPosts = async () => {
                     try {
-                        const snapshot = await firebase.firestore()
-                        .collection('userPost')
-                        .doc(currentUser.uid)
-                        .collection('posts')
-                        .get();
+                        const userPostRef = collection(db, 'userPost', currentUser.uid, 'posts');
+                        const snapshot = await getDocs(userPostRef);
 
                         const postList = snapshot.docs.map(
                             (doc) => ({
@@ -33,7 +31,7 @@ function StoryList () {
 
                 fetchUserBlogPosts();
             }
-        }, [currentUser]);
+        }, [currentUser, db]);
 
     return (
         <div>

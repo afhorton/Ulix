@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import { useAuth } from './AuthProvider';
+import React, { useContext, useState } from 'react';
+import { getFirestore, collection, doc, addDoc } from 'firebase/firestore';
+import { UserContext } from '../AuthProvider';
+import app from '../firebase-config'
 
 function StoryForm () {
-    const { currentUser } = useAuth();
+    const currentUser = useContext(UserContext);
+    const db = getFirestore(app);
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -21,13 +22,10 @@ function StoryForm () {
         if (currentUser) {
             try {
                 // Save blog post to the user's collection in Firestore
-                await firebase.firestore()
-                .collection('userPosts')
-                .doc(currentUser.uid)
-                .collection('posts')
-                .add({
+                const userPostsRef = collection(db, 'userPosts', currentUser.uid, 'posts');
+                await addDoc(userPostsRef, {
                     title: title,
-                    content: content
+                    content: content,
                 });
 
                 // Clear form fields after successful post creation

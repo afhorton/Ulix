@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { auth, firestore } from './firebase-config';
+import { firebaseAuth, firestore } from './firebase-config';
 
 export const UserContext = createContext();
 
@@ -8,7 +8,7 @@ function AuthProvider ({ children }) {
 
     useEffect(
         () => {
-            const unsubscribe = auth.onAuthStateChanged(
+            const unsubscribe = firebaseAuth.onAuthStateChanged(
                 async (authUser) => {
                     if (authUser) {
                         try {
