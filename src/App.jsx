@@ -15,11 +15,10 @@ function App() {
   const router = createBrowserRouter([
    { element: <Layout />,
    children:[
-    {path:"/", element: user ? <StoryList/> : <Home />, errorElement: <Error /> },
-    {path: "/StoryForm", element: <StoryForm/> , errorElement: <Error /> },
-    {path:, element: , errorElement: <Error />},
-    {path:, element: , errorElement: <Error />},
-    {path:, element: , errorElement: <Error /> },
+    {path: "/", element: user ? <StoryList/> : <Home />, errorElement: <Error /> },
+    {path: "/storyForm", element: <StoryForm/> , errorElement: <Error /> },
+    {path:"/login", element: <Login/> , errorElement: <Error />},
+    {path: "/signup", element: <Signup/>, errorElement: <Error />},
    ],
   },
   ])

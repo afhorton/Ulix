@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import { useAuth } from './AuthProvider';
+import { useAuth } from '..AuthProvider';
 
 function StoryList () {
     const { currentUser } = useAuth();
