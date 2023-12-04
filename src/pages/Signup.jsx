@@ -43,12 +43,11 @@ function SignUp () {
             <section>
             <h1>Signup</h1>
             <h2>Begin Your Odyssey!</h2>
-            <form>
+            <form onSubmit={handleSignUp}>
                 <div>
                     <label htmlFor="">Email Address</label>
                     <input
                     type="email"
-                    label="Email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -80,7 +79,7 @@ function SignUp () {
                     >
                     </input>
                 </div>
-                <button type="submit" onClick={handleSignUp}>
+                <button type="submit">
                     Sign up
                     </button>
                     <p>

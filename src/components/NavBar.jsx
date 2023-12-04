@@ -33,8 +33,12 @@ function NavBar() {
       <NavLink className="nav-item nav-link active" to="#">Stories <span className="sr-only">(current)</span></NavLink>) : 
       <NavLink className="nav-item nav-link active" to="./pages/About">About <span className="sr-only">(current)</span></NavLink>
 }
-      <NavLink className="nav-item nav-link" to="#">Features</NavLink>
-      <NavLink className="nav-item nav-link" to="#">Pricing</NavLink>
+      { user ? (
+        <NavLink className="nav-item nav-link" to="/Signup">New Story</NavLink> ) :
+        null
+      }
+      
+     
       { user ?
         <NavLink className="nav-item nav-link" to="./pages/myPosts">Hello, {user.username}</NavLink>
       : null
