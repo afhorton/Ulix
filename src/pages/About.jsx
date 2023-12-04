@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 function About () {
 
     const goToSignUp = () => {
-        useNavigate('pages/Signup')
+        useNavigate('/signup')
     }
 
-    const goToLoginUp = () => {
-        useNavigate('pages/Login')
+    const goToLogin = () => {
+        useNavigate('/login')
     }
     return (
         <>
@@ -22,7 +22,7 @@ function About () {
           Haven't started your odyssey? <a onClick={goToSignUp}>Sign Up</a>
         </p>
         <p>
-          Already have? <a onClick={goToSignUp}>Log in</a>
+          Already have? <a onClick={goToLogin}>Log in</a>
         </p>
     </div>
 </main>

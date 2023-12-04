@@ -64,7 +64,7 @@ function SignUp () {
                     type="text"
                     label="Username"
                     value={username}
-                    onChange={(e) => setUsername(e.target)}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                     placeholder="Username"
                     >
