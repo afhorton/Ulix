@@ -5,11 +5,11 @@ function Home() {
     const navigate = useNavigate();
 
     const goToLogin = () => {
-        navigate(pages/Login)
+        navigate('/login')
     };
 
     const goToSignUp = () => {
-        navigate('pages/Signup')
+        navigate('/signup')
     };
 
     return (
@@ -23,3 +23,5 @@ function Home() {
         </>
     )
 }
+
+export default Home;

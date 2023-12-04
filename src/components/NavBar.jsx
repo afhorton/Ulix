@@ -31,7 +31,7 @@ function NavBar() {
     <div className="navbar-nav">
       { user ? (
       <NavLink className="nav-item nav-link active" to="#">Stories <span className="sr-only">(current)</span></NavLink>) : 
-      <NavLink className="nav-item nav-link active" to="./pages/About">About <span className="sr-only">(current)</span></NavLink>
+      <NavLink className="nav-item nav-link active" to="/about">About</NavLink>
 }
       { user ? (
         <NavLink className="nav-item nav-link" to="/Signup">New Story</NavLink> ) :
