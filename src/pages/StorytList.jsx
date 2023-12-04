@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import { useAuth } from '..AuthProvider';
+import { UserContext } from '..AuthProvider';
 
 function StoryList () {
-    const { currentUser } = useAuth();
+    const currentUser = useContext(UserContext);
 
     const [userPosts, setUserPosts] = useState([]);
 
