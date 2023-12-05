@@ -14,29 +14,33 @@ function SignUp () {
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-        try {
-        // Create user with email and password
-        const userCredential = await createUserWithEmailAndPassword(email, password);
-
-        // Access the authenticated user
-        const user = userCredential.user;
-
-        // Create a user document in Firestore
-        const userDocRef = doc(db, 'users', user.uid);
-        await setDoc(userDocRef, { 
-            username,
-            email
-        })
-
-        // User signed up successfully
-        console.log('User signed up:', user);
-
-        } catch (error) {
-            // Handle sign-up errors
-            
-            console.log('Error signing up:', error.message);
-        }
-    };
+        console.log("email:", email);
+        console.log("password:", password);
+        console.log("username:", username);
+      
+        await createUserWithEmailAndPassword(firebaseAuth, email, password)
+          .then(async (userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            console.log(user);
+      
+            // Create a user document in Firestore
+            const userDocRef = doc(db, 'users', user.uid);
+            await setDoc(userDocRef, { 
+              username,
+              email
+            });
+      
+            navigate("/login");
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+            // ..
+          });
+      };
 
 
 
