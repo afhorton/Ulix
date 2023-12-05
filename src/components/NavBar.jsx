@@ -30,11 +30,11 @@ function NavBar() {
   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div className="navbar-nav">
       { user ? (
-      <NavLink className="nav-item nav-link active" to="#">Stories <span className="sr-only">(current)</span></NavLink>) : 
+      <NavLink className="nav-item nav-link active" to="/storyList">Stories <span className="sr-only">(current)</span></NavLink>) : 
       <NavLink className="nav-item nav-link active" to="/about">About</NavLink>
 }
       { user ? (
-        <NavLink className="nav-item nav-link" to="/Signup">New Story</NavLink> ) :
+        <NavLink className="nav-item nav-link" to="/storyForm">New Story</NavLink> ) :
         null
       }
       
@@ -44,9 +44,9 @@ function NavBar() {
       : null
       }
       { user ? (
-        <NavLink className="nav-item nav-link" to="#">Logout</NavLink> )
+        <NavLink className="nav-item nav-link" to="#" onClick={handleLogout}>Logout</NavLink> )
       : (
-        <NavLink className="nav-item nav-link" to="#">Login</NavLink>
+        <NavLink className="nav-item nav-link" to="/login">Login</NavLink>
       )
       }
     </div>
