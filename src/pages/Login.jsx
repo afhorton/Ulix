@@ -32,7 +32,7 @@ const handleLogin = (e) => {
             <section>
                 <div>
                     <h1>Login</h1>
-                    <form>
+                    <form onClick={handleLogin}>
                         <div>
                             <label htmlFor="email-address">Email Address</label>
                             <input
@@ -58,7 +58,7 @@ const handleLogin = (e) => {
                         </div>
 
                         <div>
-                            <button type="submit" onClick={handleLogin}>Login</button>
+                            <button type="submit">Login</button>
                         </div>
                     </form>
                     <p className="text-sm text-white text-center">

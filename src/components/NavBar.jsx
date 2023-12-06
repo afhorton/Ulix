@@ -29,26 +29,22 @@ function NavBar() {
   </button>
   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div className="navbar-nav">
-      { user ? (
+      
       <NavLink className="nav-item nav-link active" to="/storyList">Stories <span className="sr-only">(current)</span></NavLink>) : 
       <NavLink className="nav-item nav-link active" to="/about">About</NavLink>
-}
-      { user ? (
-        <NavLink className="nav-item nav-link" to="/storyForm">New Story</NavLink> ) :
-        null
-      }
+
+        <NavLink className="nav-item nav-link" to="/storyForm">New Story</NavLink> ) 
+     
       
      
-      { user ?
-        <NavLink className="nav-item nav-link" to="./pages/myPosts">Hello, {user.username}</NavLink>
-      : null
-      }
-      { user ? (
+        <NavLink className="nav-item nav-link" to="./pages/myPosts">
+  Hello, {user ? user.username : 'Guest'}
+</NavLink>
+     
+    
         <NavLink className="nav-item nav-link" to="#" onClick={handleLogout}>Logout</NavLink> )
-      : (
+   
         <NavLink className="nav-item nav-link" to="/login">Login</NavLink>
-      )
-      }
     </div>
   </div>
 </nav>

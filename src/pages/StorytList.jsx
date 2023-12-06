@@ -14,7 +14,7 @@ function StoryList () {
             if (currentUser) {
                 const fetchUserBlogPosts = async () => {
                     try {
-                        const userPostRef = collection(db, 'userPost', currentUser.uid, 'posts');
+                        const userPostRef = collection(db, 'userPosts', currentUser.uid, 'posts');
                         const snapshot = await getDocs(userPostRef);
 
                         const postList = snapshot.docs.map(
