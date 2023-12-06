@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import {NavLink, useNavigate} from 'react-router-dom';
 import { UserContext } from '../AuthProvider';
+import { getAuth, signOut } from "firebase/auth";
 
 
 function NavBar() {
@@ -8,16 +9,17 @@ function NavBar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    FirebaseError.auth().signOut().then(
-      () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
         console.log("Signed out successfully");
+        navigate('/login');  // Navigate to the login page after sign out
       })
-      .catch(
-        (error) => {
-          console.log("Sign out not successful: ", error);
-        }
-      );
-  }
+      .catch((error) => {
+        console.log("Sign out not successful: ", error);
+      });
+  };
+
 
 
     return (
