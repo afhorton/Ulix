@@ -16,10 +16,11 @@ function Home() {
         <>
         <h1>Ulix</h1>
         <h2>Discover, Engage, Evolve: Our Blog, Your Odyssey</h2>
-        <div>
+        
+        {/* <div> */}
             <button onClick={goToLogin}>Login</button>
             <button onClick={goToSignUp}>Signup</button>
-        </div>
+        {/* </div> */}
         </>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Layout from "./components/Layout";
 import UserProvider from './AuthProvider';
-import './App.css'
+// import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import StoryList from './pages/StorytList';
 import StoryForm from './pages/StoryForm';
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-     <UserProvider>
+     <UserProvider >
         <RouterProvider router={router} />
      </UserProvider>
     </>
