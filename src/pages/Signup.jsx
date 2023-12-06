@@ -49,57 +49,55 @@ function SignUp () {
 
 
     return (
-        <>
-        <main>
-            <section>
-            <h1>Signup</h1>
-            <h2>Begin Your Odyssey!</h2>
-            <form onSubmit={handleSignUp}>
-                <div>
-                    <label htmlFor="">Email Address</label>
-                    <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    placeholder="Email address"
-                    >
-                    </input>
-                </div>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input
-                    type="text"
-                    label="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                    placeholder="Username"
-                    >
-                    </input>
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                    type="password"
-                    label="Create password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    placeholder="Password"
-                    >
-                    </input>
-                </div>
-                <button type="submit">
-                    Sign up
-                    </button>
-                    <p>
-              Already begun your odyssey? <NavLink to="/login">Sign in</NavLink>
-            </p>
-            </form>
-            </section>
-        </main>
-        </>
+      <>
+      <main className="container vh-100 d-flex flex-column justify-content-center align-items-center">
+          <section>
+              <h1 className="mb-4">Signup</h1>
+              <h2 className="mb-4">Begin Your Odyssey!</h2>
+              <form className="w-50" onSubmit={handleSignUp}>
+                  <div className="form-group">
+                      <label htmlFor="email">Email Address</label>
+                      <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                          placeholder="Email address"
+                          className="form-control"
+                      />
+                  </div>
+                  <div className="form-group">
+                      <label htmlFor="username">Username</label>
+                      <input
+                          type="text"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          required
+                          placeholder="Username"
+                          className="form-control"
+                      />
+                  </div>
+                  <div className="form-group">
+                      <label htmlFor="password">Password</label>
+                      <input
+                          type="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          required
+                          placeholder="Password"
+                          className="form-control"
+                      />
+                  </div>
+                  <button type="submit" className="btn btn-primary">
+                      Sign up
+                  </button>
+                  <p className="mt-3">
+                      Already begun your odyssey? <NavLink to="/login">Sign in</NavLink>
+                  </p>
+              </form>
+          </section>
+      </main>
+  </>
     );
 };
 

@@ -27,47 +27,43 @@ const handleLogin = (e) => {
 }
 
     return (
-        <>
-        <main>
-            <section>
-                <div>
-                    <h1>Login</h1>
-                    <form onClick={handleLogin}>
-                        <div>
-                            <label htmlFor="email-address">Email Address</label>
-                            <input
-                            id="email-address"
-                            name="email"
-                            type="email"
-                            required
-                            placeholder="Email address"
-                            onChange={(e) => setEmail(e.target.value)}
-                            />
-                        </div>
-                        
-                        <div>
-                            <label htmlFor="password">Password</label>
-                            <input
-                            id="password"
-                            name="password"
-                            type="password"
-                            required
-                            placeholder="Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </div>
-
-                        <div>
-                            <button type="submit">Login</button>
-                        </div>
-                    </form>
-                    <p className="text-sm text-white text-center">
-              No account yet? <NavLink to="/signup">Sign up</NavLink>
-            </p>
+        <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
+            <h1 className="mb-4">Login</h1>
+            <form className="w-50" onSubmit={handleLogin}>
+                <div className="form-group">
+                    <label htmlFor="email-address">Email Address</label>
+                    <input
+                    id="email-address"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="Email address"
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="form-control"
+                    />
                 </div>
-            </section>
-        </main>
-        </>
+                
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    required
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="form-control"
+                    />
+                </div>
+
+                <div className="form-group">
+                    <button type="submit" className="btn btn-primary">Login</button>
+                </div>
+            </form>
+            <p className="text-sm text-white text-center">
+                No account yet? <NavLink to="/signup">Sign up</NavLink>
+            </p>
+        </div>
     )
 }
 

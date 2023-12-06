@@ -50,26 +50,29 @@ function StoryForm () {
     }
 
     return (
-        <div>
-            <h2>Create New Story</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Title:
-                    <input 
-                    type="text"
-                    value={title}
-                    onChange={handleTitleChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    Content:
-                    <textarea value={content} onChange={handleContentChange}/>
-                </label>
-                <br />
-                <button type="submit">Create Post</button>
-            </form>
-        </div>
+      <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
+      <h2 className="mb-4">Create New Story</h2>
+      <form className="w-50" onSubmit={handleSubmit}>
+          <div className="form-group">
+              <label htmlFor="title">Title:</label>
+              <input 
+                  type="text"
+                  value={title}
+                  onChange={handleTitleChange}
+                  className="form-control"
+              />
+          </div>
+          <div className="form-group">
+              <label htmlFor="content">Content:</label>
+              <textarea 
+                  value={content} 
+                  onChange={handleContentChange} 
+                  className="form-control"
+              />
+          </div>
+          <button type="submit" className="btn btn-primary mt-3">Create Post</button>
+      </form>
+  </div>
     )
 };
 

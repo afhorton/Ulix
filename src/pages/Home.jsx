@@ -13,15 +13,14 @@ function Home() {
     };
 
     return (
-        <>
-        <h1>Ulix</h1>
-        <h2>Discover, Engage, Evolve: Our Blog, Your Odyssey</h2>
-        
-        {/* <div> */}
-            <button onClick={goToLogin}>Login</button>
-            <button onClick={goToSignUp}>Signup</button>
-        {/* </div> */}
-        </>
+        <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
+        <h1 className="mb-4">Ulix</h1>
+        <h2 className="mb-4">Discover, Engage, Evolve: Our Blog, Your Odyssey</h2>
+        <div>
+            <button className="btn btn-primary mr-2" onClick={goToLogin}>Login</button>
+            <button className="btn btn-secondary" onClick={goToSignUp}>Signup</button>
+        </div>
+    </div>
     )
 }
 
