@@ -35,7 +35,7 @@ function StoryList () {
 
     return (
         <div className="container">
-        <h2 className="my-4">Your Stories</h2>
+        <h2 className="my-4"><img src="public/StoryList.png" alt="About" height="100"/>Your Stories</h2>
         <div className="row">
             {
                 userPosts.map(
