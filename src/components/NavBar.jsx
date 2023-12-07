@@ -36,9 +36,11 @@ function NavBar() {
         </button>
         <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
           <div className="navbar-nav">
-            <NavLink className="nav-item nav-link active" to="/storyList"><img src="public/StoryList.png" alt="New Story" height="40"/>Your Stories</NavLink>
+            { user ?
+            <NavLink className="nav-item nav-link active" to="/storyList"><img src="public/StoryList.png" alt="New Story" height="40"/>Your Stories</NavLink> : null }
            { user ? null : <NavLink className="nav-item nav-link active" to="/about"><img src="public/About.png" alt="About" height="40"/>About</NavLink> }
-            <NavLink className="nav-item nav-link" to="/storyForm"><img src="public/StoryForm.png" alt="New Story" height="40"/>New Story</NavLink>
+            { user ? <NavLink className="nav-item nav-link" to="/storyForm"><img src="public/StoryForm.png" alt="New Story" height="40"/>New Story</NavLink> : null}
+            { user ? null : <NavLink className="nav-item nav-link" to="/signup"><img src="public/SignUp.png" alt="Sign Up" height="40"/>Sign Up</NavLink> }
             { user ?
             <NavLink className="nav-item nav-link" to="#" onClick={handleLogout}><img src="public/LogOut.png" alt="Log Out" height="40"/>Logout</NavLink> :
             <NavLink className="nav-item nav-link" to="/login"><img src="public/LogIn.png" alt="Log In" height="40"/>Login</NavLink> }
