@@ -14,8 +14,7 @@ function About () {
     return (
         <>
         <main className="container vh-100 d-flex flex-column justify-content-center align-items-center">
-        <img src="public/About.png" alt="Ulix" height="200"/>
-            <title>About</title>
+            <h1><img src="public/About.png" alt="About" height="100"/>About</h1>
             <div className="text-center">
                 <p>
                     Welcome to Ulix, a vibrant platform where individuals become storytellers. Here, you're the architect of your narrative, empowered to craft, share, and inspire. Whether you're an expert or an enthusiast, Ulix is your canvas to express, educate, and connect with the world. Unleash your creativity, share your passion, and join a community dedicated to telling compelling stories.
