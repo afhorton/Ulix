@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { getFirestore, collection, doc, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, doc, getDocs, deleteDoc } from 'firebase/firestore';
 import { UserContext } from '../AuthProvider';
 import app from '../firebase-config';
 
@@ -33,6 +33,15 @@ function StoryList () {
             }
         }, [currentUser, db]);
 
+    const handleDelete = async (postId) => {
+        try {
+            await deleteDoc(doc(db, 'userPosts', currentUser.uid, 'posts', postId));
+            setUserPosts(userPosts.filter(post => post.id !== postId));
+        } catch (error) {
+            console.error('Error deleting post: ', error);
+        }
+    }
+
     return (
         <div className="container">
         <h2 className="my-4"><img src="public/StoryList.png" alt="About" height="100"/>Your Stories</h2>
@@ -45,6 +54,7 @@ function StoryList () {
                                 <div className="card-header">{post.title}</div>
                                 <div className="card-body">
                                     <p className="card-text">{post.content}</p>
+                                    <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
                                 </div>
                             </div>
                         </div>
