@@ -14,6 +14,7 @@ function About () {
     return (
         <>
         <main className="container vh-100 d-flex flex-column justify-content-center align-items-center">
+        <img src="public/About.png" alt="Ulix" height="200"/>
             <title>About</title>
             <div className="text-center">
                 <p>

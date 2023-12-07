@@ -28,7 +28,7 @@ const handleLogin = (e) => {
 
     return (
         <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
-            <h1 className="mb-4">Login</h1>
+            <h1 className="mb-4"><img src="public/LogIn.png" alt="Ulix" height="100"/>Login</h1>
             <form className="w-50" onSubmit={handleLogin}>
                 <div className="form-group">
                     <label htmlFor="email-address">Email Address</label>
