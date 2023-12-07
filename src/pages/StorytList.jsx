@@ -34,21 +34,25 @@ function StoryList () {
         }, [currentUser, db]);
 
     return (
-        <div>
-            <h2>Your Stories</h2>
-            <ul>
-                {
-                    userPosts.map(
-                        (post) => (
-                            <li key={post.id}>
-                                <h3>{post.title}</h3>
-                                <p>{post.content}</p>
-                            </li>
-                        )
+        <div className="container">
+        <h2 className="my-4">Your Stories</h2>
+        <div className="row">
+            {
+                userPosts.map(
+                    (post) => (
+                        <div key={post.id} className="col-md-4 mb-4">
+                            <div className="card bg-light mb-3" style={{maxWidth: "18rem"}}>
+                                <div className="card-header">{post.title}</div>
+                                <div className="card-body">
+                                    <p className="card-text">{post.content}</p>
+                                </div>
+                            </div>
+                        </div>
                     )
-                }
-            </ul>
+                )
+            }
         </div>
+    </div>
 
     );
 };
