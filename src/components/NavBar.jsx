@@ -26,21 +26,22 @@ function NavBar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink className="navbar-brand" to="/"><img src="public/UlixLogo1NoBG.png" alt="Ulix" height="40"/></NavLink>
+        <div className="nav-item">
+            {user ? <img src="public/Member.png" alt="New Story" height="40"/> :
+            <img src="public/Guest.png" alt="New Story" height="40"/>}
+              Hello, {user ? user.username : 'Guest'}
+            </div>
         <button className="navbar-toggler" type="button" onClick={toggle}>
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
           <div className="navbar-nav">
             <NavLink className="nav-item nav-link active" to="/storyList"><img src="public/StoryList.png" alt="New Story" height="40"/>Your Stories</NavLink>
-            <NavLink className="nav-item nav-link active" to="/about"><img src="public/About.png" alt="About" height="40"/>About</NavLink>
+           { user ? null : <NavLink className="nav-item nav-link active" to="/about"><img src="public/About.png" alt="About" height="40"/>About</NavLink> }
             <NavLink className="nav-item nav-link" to="/storyForm"><img src="public/StoryForm.png" alt="New Story" height="40"/>New Story</NavLink>
-            <div className="nav-item nav-link" to="./pages/myPosts">
-            {user ? <img src="public/Member.png" alt="New Story" height="40"/> :
-            <img src="public/Guest.png" alt="New Story" height="40"/>}
-              Hello, {user ? user.username : 'Guest'}
-            </div>
-            <NavLink className="nav-item nav-link" to="#" onClick={handleLogout}><img src="public/LogOut.png" alt="Log Out" height="40"/>Logout</NavLink>
-            <NavLink className="nav-item nav-link" to="/login"><img src="public/LogIn.png" alt="Log In" height="40"/>Login</NavLink>
+            { user ?
+            <NavLink className="nav-item nav-link" to="#" onClick={handleLogout}><img src="public/LogOut.png" alt="Log Out" height="40"/>Logout</NavLink> :
+            <NavLink className="nav-item nav-link" to="/login"><img src="public/LogIn.png" alt="Log In" height="40"/>Login</NavLink> }
           </div>
         </div>
       </nav>
