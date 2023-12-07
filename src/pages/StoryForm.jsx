@@ -51,7 +51,7 @@ function StoryForm () {
 
     return (
       <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
-      <h2 className="mb-4">Create New Story</h2>
+      <h2 className="mb-4"><img src="public/StoryForm.png" alt="About" height="100"/>Create New Story</h2>
       <form className="w-50" onSubmit={handleSubmit}>
           <div className="form-group">
               <label htmlFor="title">Title:</label>
