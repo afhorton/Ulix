@@ -32,7 +32,7 @@ function Story() {
 
     return (
         <div className="container">
-            <h2 className="my-4"><img src="/Story.png" alt="Story" height="100"/>{post.title}</h2>
+            <h2 className="my-4"><img src="/ReadPage.png" alt="Story" height="100"/>{post.title}</h2>
             <div className="row">
                 <div className="col-md-12">
                     <div className="card bg-light mb-3 shadow-sm">
