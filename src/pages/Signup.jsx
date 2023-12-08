@@ -51,7 +51,7 @@ function SignUp () {
     return (
       <>
       <main className="container vh-100 d-flex flex-column justify-content-center align-items-center">
-          <section>
+          
               <h1 className="mb-4"> <img src="public/SignUp.png" alt="Ulix" height="100"/>Signup</h1>
               <h2 className="mb-4">Begin Your Odyssey!</h2>
               <form className="w-50" onSubmit={handleSignUp}>
@@ -95,7 +95,7 @@ function SignUp () {
                       Already begun your odyssey? <NavLink to="/login">Sign in</NavLink>
                   </p>
               </form>
-          </section>
+          
       </main>
   </>
     );

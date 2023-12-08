@@ -50,7 +50,7 @@ function StoryList () {
                 userPosts.map(
                     (post) => (
                         <div key={post.id} className="col-md-4 mb-4">
-                            <div className="card bg-light mb-3" style={{maxWidth: "18rem"}}>
+                            <div className="card bg-light mb-3 shadow-sm" style={{maxWidth: "18rem"}}>
                                 <div className="card-header">{post.title}</div>
                                 <div className="card-body">
                                     <p className="card-text">{post.content}</p>
