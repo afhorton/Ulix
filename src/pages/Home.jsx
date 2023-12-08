@@ -16,7 +16,7 @@ function Home() {
 
     return (
         <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
-        <img src="public/UlixLogo1NoBG.png" alt="Ulix" height="200"/>
+        <img src="/UlixLogo1NoBG.png" alt="Ulix" height="200"/>
         <h1 className="mb-4">Ulix</h1>
         <p>/ˈjuːlɪks/</p>
         <p><i>noun.</i> a personal chronicle, typically captivating in nature.</p>
