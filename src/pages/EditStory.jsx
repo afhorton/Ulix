@@ -45,7 +45,7 @@ if (!title || !content) return null;
 
 return (
     <div>
-        <h1><img src="public/EditStory.png" alt="About" height="100"/>Edit Story</h1>
+        <h1><img src="public/EditStory.png" alt="Edit Story" height="100"/>Edit Story</h1>
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
         <textarea value={content} onChange={(e) => setContent(e.target.value)}/>
         <button onClick={handleUpdate}>Update Story</button>
