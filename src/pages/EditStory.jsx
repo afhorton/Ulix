@@ -52,7 +52,7 @@ return (
     // </div>
 
     <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
-    <h2><img src="public/EditStory.png" alt="Edit Story" height="100"/>Edit Story</h2>
+    <h2><img src="/EditStory.png" alt="Edit Story" height="100"/>Edit Story</h2>
     <form className="w-50">
         <div className="form-group">
             <label htmlFor="title">Title:</label>
