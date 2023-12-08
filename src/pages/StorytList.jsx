@@ -2,11 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import { getFirestore, collection, doc, getDocs, deleteDoc } from 'firebase/firestore';
 import { UserContext } from '../AuthProvider';
 import app from '../firebase-config';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function StoryList () {
     const currentUser = useContext(UserContext);
     const db = getFirestore(app);
+    const navigate = useNavigate();
 
     const [userPosts, setUserPosts] = useState([]);
 
@@ -44,7 +45,7 @@ function StoryList () {
     }
 
     const handleEdit = (postId) => {
-        Navigate('/editStory/${postId}');
+        navigate(`/editStory/${postId}`);
     }
 
     return (

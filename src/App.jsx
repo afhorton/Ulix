@@ -25,7 +25,7 @@ function App() {
     {path:"/login", element: <Login/> , errorElement: <Error />},
     {path: "/signup", element: <SignUp/>, errorElement: <Error />},
     {path: "/about", element: <About/>, errorElement: <Error />},
-    {path: "/editStory", element: <EditStory/>, errorElement: <Error />}
+    {path: "/editStory/:postId", element: <EditStory/>, errorElement: <Error />}
    ],
   },
   ])
