@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Error from './pages/Error';
 import About from './pages/About';
 import EditStory from './pages/EditStory';
+import Story from './pages/Story';
 
 
 
@@ -25,7 +26,8 @@ function App() {
     {path:"/login", element: <Login/> , errorElement: <Error />},
     {path: "/signup", element: <SignUp/>, errorElement: <Error />},
     {path: "/about", element: <About/>, errorElement: <Error />},
-    {path: "/editStory/:postId", element: <EditStory/>, errorElement: <Error />}
+    {path: "/editStory/:postId", element: <EditStory/>, errorElement: <Error />},
+    {path: "/story/:postId", element: <Story/>, errorElement: <Error />}
    ],
   },
   ])

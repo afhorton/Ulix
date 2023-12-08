@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { getFirestore, collection, doc, getDocs, deleteDoc } from 'firebase/firestore';
 import { UserContext } from '../AuthProvider';
 import app from '../firebase-config';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function StoryList () {
     const currentUser = useContext(UserContext);
@@ -57,9 +57,13 @@ function StoryList () {
                     (post) => (
                         <div key={post.id} className="col-md-4 mb-4">
                             <div className="card bg-light mb-3 shadow-sm" style={{maxWidth: "18rem"}}>
+                            <Link to={`/story/${post.id}`}>
                                 <div className="card-header">{post.title}</div>
+                                </Link>
                                 <div className="card-body">
-                                    <p className="card-text">{post.content}</p>
+                                <Link to={`/story/${post.id}`}>
+                                    <p className="card-text">{post.content.substring(0, 100)}...</p>
+                                    </Link>
                                     <button className="btn btn-primary" onClick={() => handleEdit(post.id)}>Edit</button>
                                     <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
                                 </div>
