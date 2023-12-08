@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { getFirestore, collection, doc, getDocs, deleteDoc } from 'firebase/firestore';
 import { UserContext } from '../AuthProvider';
 import app from '../firebase-config';
+import { Navigate } from 'react-router-dom';
 
 function StoryList () {
     const currentUser = useContext(UserContext);
@@ -42,6 +43,10 @@ function StoryList () {
         }
     }
 
+    const handleEdit = (postId) => {
+        Navigate('/editStory/${postId}');
+    }
+
     return (
         <div className="container">
         <h2 className="my-4"><img src="public/StoryList.png" alt="About" height="100"/>Your Stories</h2>
@@ -54,6 +59,7 @@ function StoryList () {
                                 <div className="card-header">{post.title}</div>
                                 <div className="card-body">
                                     <p className="card-text">{post.content}</p>
+                                    <button className="btn btn-primary" onClick={() => handleEdit(post.id)}>Edit</button>
                                     <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
                                 </div>
                             </div>

@@ -10,6 +10,7 @@ import SignUp from './pages/Signup';
 import Home from './pages/Home';
 import Error from './pages/Error';
 import About from './pages/About';
+import EditStory from './pages/EditStory';
 
 
 
@@ -24,6 +25,7 @@ function App() {
     {path:"/login", element: <Login/> , errorElement: <Error />},
     {path: "/signup", element: <SignUp/>, errorElement: <Error />},
     {path: "/about", element: <About/>, errorElement: <Error />},
+    {path: "/editStory", element: <EditStory/>, errorElement: <Error />}
    ],
   },
   ])
