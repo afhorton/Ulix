@@ -14,7 +14,7 @@ const handleLogin = (e) => {
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        navigate(-1) || navigate('/');
+        navigate('/');
         console.log(user.id); 
     })
     .catch(

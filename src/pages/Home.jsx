@@ -24,9 +24,11 @@ function Home() {
        
         <h2 className="mb-4">Discover, Engage, Evolve: Your Blog, Your Odyssey</h2> }
          { user ? null :
-        <div className='align-items-center'>
-            <button className="btn btn-primary mr-2" onClick={goToLogin}>Login</button>
-            <button className="btn btn-secondary" onClick={goToSignUp}>Signup</button>
+        <div className='align-items-center card'>
+            <div className='card-body shadow space-between'>
+            <button className="btn btn-primary mr-2" onClick={goToLogin}><img src="/LogIn.png" alt="Login" height="30" className='mx-2'/>Login</button>
+            <button className="btn btn-secondary mx-1" onClick={goToSignUp}><img src="/SignUp.png" alt="Signup" height="30" className='mx-2'/>Signup</button>
+            </div>
         </div>
        }
         </div>
