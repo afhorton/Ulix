@@ -67,6 +67,9 @@ function StoryList () {
                                     <button className="btn btn-primary" onClick={() => handleEdit(post.id)}>Edit</button>
                                     <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
                             </div>
+                           {post.author && <div className='card-footer'>
+                                Author: {post.author}
+                                </div> }
                             <div className='card-footer'>
                                 {post.createdAt.isEqual(post.updatedAt) ?
                                 `Created on: ${post.createdAt.toDate().toLocaleString()}`:

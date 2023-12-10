@@ -28,7 +28,8 @@ function StoryForm () {
               title: title,
               content: content,
               createdAt: serverTimestamp(),
-              updatedAt: serverTimestamp()
+              updatedAt: serverTimestamp(),
+              author: currentUser.username
             });
       
             // Clear form fields after successful post creation

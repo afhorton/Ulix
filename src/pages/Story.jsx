@@ -41,6 +41,13 @@ function Story() {
             <div className="row">
                 <div className="col-md-12">
                     <div className="card bg-light mb-3 shadow-sm">
+                    <div class="card-header">
+                    {post.author &&
+                                `Author: ${post.author} | `} 
+                   {post.createdAt.isEqual(post.updatedAt) ?
+                                `Created on: ${post.createdAt.toDate().toLocaleString()}`:
+                                `Updated on: ${post.updatedAt.toDate().toLocaleString()}`}
+                     </div>
                         {/* <div className="card-header">{post.title}</div> */}
                         <div className="card-body">
                             <p className="card-text">{post.content}</p>
