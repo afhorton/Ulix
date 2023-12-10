@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { UserContext } from '../AuthProvider';
 import app from '../firebase-config';
@@ -9,6 +9,7 @@ function Story() {
     const currentUser = useContext(UserContext);
     const db = getFirestore(app);
     const [post, setPost] = useState(null);
+    const navigate = useNavigate();
 
     useEffect( () => {
         const fetchPost = async () => {
@@ -30,6 +31,10 @@ function Story() {
         return <div>Loading...</div>
     }
 
+    const handleBackButton = () => {
+        navigate('/storyList');
+    }
+
     return (
         <div className="container">
             <h2 className="my-4"><img src="/ReadPage.png" alt="Story" height="100"/>{post.title}</h2>
@@ -43,6 +48,7 @@ function Story() {
                     </div>
                 </div>
             </div>
+            <button className="btn btn-primary" onClick={handleBackButton}><img src="/BackButton.png" alt="BackButton" height="30" className='mx-1'/>Back to Stories</button>
         </div>
     );
 

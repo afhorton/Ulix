@@ -24,7 +24,7 @@ function NavBar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         {/* { user ? <NavLink className="navbar-brand" to="/storyList"><img src="public/UlixLogo1NoBG.png" alt="Ulix" height="40"/></NavLink> : */}
         <NavLink className="navbar-brand mx-2" to="/"><img src="/UlixLogo1NoBG.png" alt="Ulix" height="40"/></NavLink> 
         <div className="nav-item">
