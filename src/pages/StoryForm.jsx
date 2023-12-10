@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { UserContext } from '../AuthProvider';
 import app from '../firebase-config'
 
@@ -27,6 +27,8 @@ function StoryForm () {
             await addDoc(userPostsRef, {
               title: title,
               content: content,
+              createdAt: serverTimestamp(),
+              updatedAt: serverTimestamp()
             });
       
             // Clear form fields after successful post creation

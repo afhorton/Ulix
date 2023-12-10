@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getFirestore, doc, getDoc, updateDoc } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { UserContext } from '../AuthProvider';
 import app from '../firebase-config';
 
@@ -35,7 +35,8 @@ function EditStory() {
         await updateDoc(
             postRef, {
                 title,
-                content
+                content,
+                updatedAt: serverTimestamp(),
             }
         );
         navigate('/storyList');
