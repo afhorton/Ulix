@@ -3,11 +3,14 @@ import { getFirestore, collection, doc, getDocs, deleteDoc } from 'firebase/fire
 import { UserContext } from '../AuthProvider';
 import app from '../firebase-config';
 import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { publishStory } from '../publishedStoriesSlice';
 
 function StoryList () {
     const currentUser = useContext(UserContext);
     const db = getFirestore(app);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [userPosts, setUserPosts] = useState([]);
 
@@ -48,6 +51,10 @@ function StoryList () {
         navigate(`/editStory/${postId}`);
     }
 
+    const handlePublish = (story) => {
+        dispatch(publishStory(story));
+    };
+
     return (
         <div className="container">
         <h2 className="my-4"><img src="/StoryList.png" alt="About" height="100"/>Your Stories</h2>
@@ -66,6 +73,7 @@ function StoryList () {
                                     </Link>
                                     <button className="btn btn-primary" onClick={() => handleEdit(post.id)}>Edit</button>
                                     <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
+                                    <button className="btn btn-success" onClick={() => handlePublish(post)}>Publish</button>
                             </div>
                            {post.author && <div className='card-footer'>
                                 Author: {post.author}
