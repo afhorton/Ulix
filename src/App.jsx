@@ -12,7 +12,9 @@ import Error from './pages/Error';
 import About from './pages/About';
 import EditStory from './pages/EditStory';
 import Story from './pages/Story';
-
+import PublishedList from './pages/PublishedList';
+// import { Provider } from 'react-redux';
+// import store from './store';
 
 
 function App() {
@@ -27,7 +29,8 @@ function App() {
     {path: "/signup", element: <SignUp/>, errorElement: <Error />},
     {path: "/about", element: <About/>, errorElement: <Error />},
     {path: "/editStory/:postId", element: <EditStory/>, errorElement: <Error />},
-    {path: "/story/:postId", element: <Story/>, errorElement: <Error />}
+    {path: "/story/:postId", element: <Story/>, errorElement: <Error />},
+    {path: "/publishedList", element: <PublishedList/>, errorElement: <Error />},
    ],
   },
   ])

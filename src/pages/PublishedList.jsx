@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPublishedStories } from './publishedStoriesSlice';
+import { fetchPublishedStories } from '../publishedStoriesSlice';
 
 function PublishedList () {
 const dispatch = useDispatch();

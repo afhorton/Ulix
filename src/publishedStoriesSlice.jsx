@@ -5,7 +5,7 @@ import app from './firebase-config';
 const db = getFirestore(app);
 
 // Fetch published stories
-export const fetchPublisheStories = createAsyncThunk(
+export const fetchPublishedStories = createAsyncThunk(
     'publishedStories/fetchPublishedStories', async () => {
         const querySnapshot = await getDocs(collection(db, 'publishedStories'));
         return querySnapshot.docs.map(doc => doc.data());

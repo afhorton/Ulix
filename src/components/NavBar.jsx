@@ -41,6 +41,7 @@ function NavBar() {
             <NavLink className="nav-item nav-link active" to="/storyList"><img src="/StoryList.png" alt="New Story" height="40"/>Your Stories</NavLink> : null }
            { user ? null : <NavLink className="nav-item nav-link active" to="/about"><img src="/About.png" alt="About" height="40"/>About</NavLink> }
             { user ? <NavLink className="nav-item nav-link" to="/storyForm"><img src="/StoryForm.png" alt="New Story" height="40"/>New Story</NavLink> : null}
+            <NavLink className="nav-item nav-link" to="/publishedList"><img src="/PublishedList.png" alt="Published Stories" height="40"/>Published Stories</NavLink>
             { user ? null : <NavLink className="nav-item nav-link" to="/signup"><img src="/SignUp.png" alt="Sign Up" height="40"/>Sign Up</NavLink> }
             { user ?
             <NavLink className="nav-item nav-link" to="#" onClick={handleLogout}><img src="/LogOut.png" alt="Log Out" height="40"/>Logout</NavLink> :
