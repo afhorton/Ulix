@@ -4,7 +4,7 @@ import { UserContext } from '../AuthProvider';
 import app from '../firebase-config';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { publishStory } from '../publishedStoriesSlice';
+import { publishStory, unpublishStory } from '../publishedStoriesSlice';
 
 function StoryList () {
     const currentUser = useContext(UserContext);
@@ -55,6 +55,10 @@ function StoryList () {
         dispatch(publishStory(story));
     };
 
+    const handleUnpublish = (storyId) => {
+        dispatch(unpublishStory(storyId));
+    };
+
     return (
         <div className="container">
         <h2 className="my-4"><img src="/StoryList.png" alt="About" height="100"/>Your Stories</h2>
@@ -74,6 +78,7 @@ function StoryList () {
                                     <button className="btn btn-primary" onClick={() => handleEdit(post.id)}>Edit</button>
                                     <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
                                     <button className="btn btn-success" onClick={() => handlePublish(post)}>Publish</button>
+                                    <button className="btn btn-warning" onClick={() => handleUnpublish(post.id)}>Unpublish</button>
                             </div>
                            {post.author && <div className='card-footer'>
                                 Author: {post.author}
