@@ -30,13 +30,20 @@ const publishedStoriesSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(fetchPublishedStories.fulfilled, (state, action) =>{
-            return action.payload;
+            return action.payload.map(
+                story => ({
+                    ...story,
+                    createdAt: story.createdAt instanceof firebase.firestore.Timestamp ? story.createdAt.toDate().toISOString() : story.createdAt,
+                    updatedAt: story.updatedAt instanceof firebase.firestore.Timestamp ? story.updatedAt.toDate().toISOString() : story.updatedAt,
+                })
+            );
         })
         .addCase(publishStory.fulfilled, (state, action) => {
             state.push(action.payload);
         })
         .addCase(unpublishStory.fulfilled, (state, action) => {
-            return state.filter(story => story.id !== action.payload);
+            const newState = state.filter(story => story.id !== action.payload);
+            state.splice(0, state.length, ...newState);
         });
     },
 });

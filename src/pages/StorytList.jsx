@@ -4,7 +4,7 @@ import { UserContext } from '../AuthProvider';
 import app from '../firebase-config';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { publishStory, unpublishStory } from '../publishedStoriesSlice';
+import { publishStory, unpublishStory, fetchPublishedStories} from '../publishedStoriesSlice';
 
 function StoryList () {
     const currentUser = useContext(UserContext);
@@ -55,8 +55,9 @@ function StoryList () {
         dispatch(publishStory(story));
     };
 
-    const handleUnpublish = (storyId) => {
+    const handleUnpublish = async (storyId) => {
         dispatch(unpublishStory(storyId));
+        dispatch(fetchPublishedStories());
     };
 
     return (
