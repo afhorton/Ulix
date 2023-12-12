@@ -13,16 +13,23 @@ useEffect(
 );
 
 return (
-    <div>
+    <div className="container">
+    <h2 className="my-4"><img src="/PublishedList.png" alt="PublishedList" height="100"/>Published Stories</h2>
+    <div className="row">
         {publishedStories.map(
             story => (
-                <div key={story.id}>
-                    <h2>{story.title}</h2>
-                    <p>{story.content}</p>
-                    <p>Author: {story.author}</p>
+                <div key={story.id} className="col-md-4 mb-4">
+                    <div className="card">
+                    <div className='card-header'><h2 className="card-title">{story.title}</h2></div>
+                        <div className="card-body">
+                            <p className="card-text">{story.content}</p>
+                        </div>
+                        <div className="card-footer">Author: {story.author}</div>
+                    </div>
                 </div>
             ))}
-    </div>
+     </div>
+</div>
 );
 
 };
