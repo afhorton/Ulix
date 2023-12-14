@@ -15,6 +15,7 @@ import Story from './pages/Story';
 import PublishedList from './pages/PublishedList';
 // import { Provider } from 'react-redux';
 // import store from './store';
+import PublishedStory from './pages/PublishedStory';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
     {path: "/editStory/:postId", element: <EditStory/>, errorElement: <Error />},
     {path: "/story/:postId", element: <Story/>, errorElement: <Error />},
     {path: "/publishedList", element: <PublishedList/>, errorElement: <Error />},
+    {path: "/publishedStory/:postId", element: <PublishedStory/>, errorElement: <Error />}
    ],
   },
   ])
