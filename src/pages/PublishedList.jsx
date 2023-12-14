@@ -22,9 +22,9 @@ return (
                 <div key={story.id} className="col-md-4 mb-4">
                     <div className="card">
                     <div className='card-header'><h2 className="card-title">
-                        <Link to={`/publishedStory/${story.id}`}>{story.title}</Link></h2></div>
+                        <Link to={`/publishedStory/${story.id}`} className='text-decoration-none text-body'>{story.title.substring(0, 100)}</Link></h2></div>
                         <div className="card-body">
-                            <p className="card-text"><Link to={`/publishedStory/${story.id}`}>{story.content}</Link></p>
+                            <p className="card-text"><Link to={`/publishedStory/${story.id}`} className='text-decoration-none text-body'>{story.content.substring(0, 100)}...</Link></p>
                         </div>
                         <div className="card-footer">Author: {story.author}</div>
                     </div>
