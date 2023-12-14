@@ -26,6 +26,16 @@ export const publishStory = createAsyncThunk('publishedStories/publishStory', as
     return story;
 });
 
+export const fetchPublishedStory = createAsyncThunk('publishedStories/fetchPublishedStory', async (storyId) => {
+    const docRef = doc(db, 'publishedStories', storyId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        return { id: docSnap.id, ...docSnap.data() };
+    } else {
+        throw new Error('No such document!');
+    }
+});
+
 const publishedStoriesSlice = createSlice({
     name: 'publishedStories',
     initialState: [],
