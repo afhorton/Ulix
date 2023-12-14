@@ -8,7 +8,10 @@ const db = getFirestore(app);
 export const fetchPublishedStories = createAsyncThunk(
     'publishedStories/fetchPublishedStories', async () => {
         const querySnapshot = await getDocs(collection(db, 'publishedStories'));
-        return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data()}));
+        return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data(),
+            createdAt: doc.data().createdAt instanceof Timestamp ? doc.data().createdAt.toDate().toISOString() : doc.data().createdAt,
+            updatedAt: doc.data().updatedAt instanceof Timestamp ? doc.data().updatedAt.toDate().toISOString() : doc.data().updatedAt,
+        }));
     }
 );
 

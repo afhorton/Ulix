@@ -32,7 +32,7 @@ function App() {
     {path: "/editStory/:postId", element: <EditStory/>, errorElement: <Error />},
     {path: "/story/:postId", element: <Story/>, errorElement: <Error />},
     {path: "/publishedList", element: <PublishedList/>, errorElement: <Error />},
-    {path: "/publishedStory/:postId", element: <PublishedStory/>, errorElement: <Error />}
+    {path: "/publishedStory/:id", element: <PublishedStory/>, errorElement: <Error />}
    ],
   },
   ])

@@ -4,14 +4,14 @@ import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import app from '../firebase-config';
 
 function PublishedStory() {
-    const { postId } = useParams();
+    const { id } = useParams();
     const db = getFirestore(app);
     const [post, setPost] = useState(null);
     const navigate = useNavigate();
 
     useEffect( () => {
         const fetchPost = async () => {
-            const postRef = doc(db, 'publishedStories', postId);
+            const postRef = doc(db, 'publishedStories', id);
             const postSnapshot = await getDoc(postRef);
 
             if (postSnapshot.exists()) {
@@ -21,7 +21,7 @@ function PublishedStory() {
             }
         };
         fetchPost();
-    }, [postId, db])
+    }, [id, db])
 
     if (!post) {
         return <div>Loading...</div>
