@@ -11,6 +11,7 @@ function StoryList () {
     const db = getFirestore(app);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [published, setPublished] = useState(false);
 
     const [userPosts, setUserPosts] = useState([]);
 
@@ -35,8 +36,9 @@ function StoryList () {
                 };
 
                 fetchUserBlogPosts();
+                dispatch(fetchPublishedStories());
             }
-        }, [currentUser, db]);
+        }, [currentUser, db, dispatch]);
 
     const handleDelete = async (postId) => {
         try {
@@ -53,11 +55,13 @@ function StoryList () {
 
     const handlePublish = (story) => {
         dispatch(publishStory(story));
+       
     };
 
     const handleUnpublish = async (storyId) => {
         dispatch(unpublishStory(storyId));
         dispatch(fetchPublishedStories());
+   
     };
 
     return (
@@ -78,9 +82,15 @@ function StoryList () {
                                     </Link>
                                     <button className="btn btn-primary" onClick={() => handleEdit(post.id)}>Edit</button>
                                     <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
+                                 
+                        
                                     <button className="btn btn-success" onClick={() => handlePublish(post)}>Publish</button>
+                            
+
+                              
                                     <button className="btn btn-warning" onClick={() => handleUnpublish(post.id)}>Unpublish</button>
-                            </div>
+                          
+                                    </div>
                            {post.author && <div className='card-footer'>
                                 Author: {post.author}
                                 </div> }

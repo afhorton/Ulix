@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getFirestore, collection, getDocs, addDoc, doc, deleteDoc} from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc, doc, deleteDoc, Timestamp} from 'firebase/firestore';
 import app from './firebase-config';
 
 const db = getFirestore(app);
@@ -8,7 +8,7 @@ const db = getFirestore(app);
 export const fetchPublishedStories = createAsyncThunk(
     'publishedStories/fetchPublishedStories', async () => {
         const querySnapshot = await getDocs(collection(db, 'publishedStories'));
-        return querySnapshot.docs.map(doc => doc.data());
+        return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data()}));
     }
 );
 
@@ -30,13 +30,14 @@ const publishedStoriesSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(fetchPublishedStories.fulfilled, (state, action) =>{
-            return action.payload.map(
-                story => ({
+            state.length = 0;
+            action.payload.forEach(
+                story => {state.push({
                     ...story,
-                    createdAt: story.createdAt instanceof firebase.firestore.Timestamp ? story.createdAt.toDate().toISOString() : story.createdAt,
-                    updatedAt: story.updatedAt instanceof firebase.firestore.Timestamp ? story.updatedAt.toDate().toISOString() : story.updatedAt,
+                    createdAt: story.createdAt instanceof Timestamp ? story.createdAt.toDate().toISOString() : story.createdAt,
+                    updatedAt: story.updatedAt instanceof Timestamp ? story.updatedAt.toDate().toISOString() : story.updatedAt,
                 })
-            );
+        });
         })
         .addCase(publishStory.fulfilled, (state, action) => {
             state.push(action.payload);
