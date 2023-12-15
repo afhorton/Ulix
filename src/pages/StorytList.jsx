@@ -69,40 +69,36 @@ return (
     <div className="container">
         <h2 className="my-4"><img src="/StoryList.png" alt="About" height="100"/>Your Stories</h2>
         <div className="row">
-            {
-                userPosts.map((post) => {
-                    const isPublished = publishedStories.some(story => story.id === post.id);
-                    return (
-                        <div key={post.id} className="col-md-4 mb-4">
-                            <div className="card bg-light mb-3 shadow-sm" style={{maxWidth: "18rem"}}>
-                                <Link to={`/story/${post.id}`} className='text-decoration-none text-body'>
-                                    <div className="card-header"><h5>{post.title}</h5></div>
-                                </Link>
-                                <div className="card-body">
-                                    <Link to={`/story/${post.id}`} className='text-decoration-none text-body'>
-                                        <p className="card-text">{post.content.substring(0, 100)}...</p>
-                                    </Link>
-                                    <button className="btn btn-primary" onClick={() => handleEdit(post.id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
-                                    {isPublished ? 
-                                        (<button className="btn btn-warning" onClick={() => handleUnpublish(post.id)}>Unpublish</button>)
-                                        :
-                                        (<button className="btn btn-success" onClick={() => handlePublish(post)}>Publish</button>)
-                                    }
-                                </div>
-                                {post.author && <div className='card-footer'>
-                                    Author: {post.author}
-                                </div> }
-                                <div className='card-footer'>
-                                    {post.createdAt.isEqual(post.updatedAt) ?
-                                    `Created on: ${post.createdAt.toDate().toLocaleString()}`:
-                                    `Updated on: ${post.updatedAt.toDate().toLocaleString()}`}
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })
-            }
+        {
+    userPosts.map((post) => {
+        return (
+            <div key={post.id} className="col-md-4 mb-4">
+                <div className="card bg-light mb-3 shadow-sm" style={{maxWidth: "18rem"}}>
+                    <Link to={`/story/${post.id}`} className='text-decoration-none text-body'>
+                        <div className="card-header"><h5>{post.title}</h5></div>
+                    </Link>
+                    <div className="card-body">
+                        <Link to={`/story/${post.id}`} className='text-decoration-none text-body'>
+                            <p className="card-text">{post.content.substring(0, 100)}...</p>
+                        </Link>
+                        <button className="btn btn-primary" onClick={() => handleEdit(post.id)}>Edit</button>
+                        <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
+                        <button className="btn btn-success" onClick={() => handlePublish(post)}>Publish</button>
+                        <button className="btn btn-warning" onClick={() => handleUnpublish(post.id)}>Unpublish</button>
+                    </div>
+                    {post.author && <div className='card-footer'>
+                        Author: {post.author}
+                    </div> }
+                    <div className='card-footer'>
+                        {post.createdAt.isEqual(post.updatedAt) ?
+                        `Created on: ${post.createdAt.toDate().toLocaleString()}`:
+                        `Updated on: ${post.updatedAt.toDate().toLocaleString()}`}
+                    </div>
+                </div>
+            </div>
+        );
+    })
+}
         </div>
     </div>
 );
