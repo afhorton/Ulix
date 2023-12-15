@@ -59,9 +59,8 @@ function StoryList () {
     };
 
     const handleUnpublish = async (storyId) => {
-        dispatch(unpublishStory(storyId));
+        await dispatch(unpublishStory(storyId));
         dispatch(fetchPublishedStories());
-   
     };
 
     // Inside your component
