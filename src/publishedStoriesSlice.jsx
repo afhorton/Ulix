@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getFirestore, collection, getDocs, addDoc, doc, deleteDoc, Timestamp} from 'firebase/firestore';
+import { getFirestore, collection, getDocs, setDoc, doc, deleteDoc, Timestamp} from 'firebase/firestore';
 import app from './firebase-config';
 
 const db = getFirestore(app);
@@ -21,10 +21,13 @@ export const unpublishStory = createAsyncThunk('publishedStories/unpublishStory'
 });
 
 // Publish a story
-export const publishStory = createAsyncThunk('publishedStories/publishStory', async (story) => {
-    await addDoc(collection(db, 'publishedStories'), story);
-    return story;
-});
+export const publishStory = createAsyncThunk(
+    "publishedStories/publishStory",
+    async (story) => {
+      await setDoc(doc(db, "publishedStories", story.id), story);
+      return story;
+    },
+  );
 
 export const fetchPublishedStory = createAsyncThunk('publishedStories/fetchPublishedStory', async (storyId) => {
     const docRef = doc(db, 'publishedStories', storyId);
