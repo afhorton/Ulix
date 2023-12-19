@@ -16,6 +16,7 @@ import PublishedList from './pages/PublishedList';
 // import { Provider } from 'react-redux';
 // import store from './store';
 import PublishedStory from './pages/PublishedStory';
+import AdminPage from './pages/AdminPage';
 
 
 function App() {
@@ -32,7 +33,8 @@ function App() {
     {path: "/editStory/:postId", element: <EditStory/>, errorElement: <Error />},
     {path: "/story/:postId", element: <Story/>, errorElement: <Error />},
     {path: "/publishedList", element: <PublishedList/>, errorElement: <Error />},
-    {path: "/publishedStory/:id", element: <PublishedStory/>, errorElement: <Error />}
+    {path: "/publishedStory/:id", element: <PublishedStory/>, errorElement: <Error />},
+    {path: "/admin", element: <AdminPage />, errorElement: <Error />}
    ],
   },
   ])

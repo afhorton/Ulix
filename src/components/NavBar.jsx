@@ -43,6 +43,7 @@ function NavBar() {
             { user ? <NavLink className="nav-item nav-link" to="/storyForm"><img src="/StoryForm.png" alt="New Story" height="40"/>New Story</NavLink> : null}
             <NavLink className="nav-item nav-link" to="/publishedList"><img src="/PublishedList.png" alt="Published Stories" height="40"/>Published Stories</NavLink>
             { user ? null : <NavLink className="nav-item nav-link" to="/signup"><img src="/SignUp.png" alt="Sign Up" height="40"/>Sign Up</NavLink> }
+            { user && user.username === 'admin' ? <NavLink className="nav-item nav-link" to="/admin"><img src="/AdminPage.png" alt="Admin" height="40"/>Admin</NavLink> : null }
             { user ?
             <NavLink className="nav-item nav-link" to="#" onClick={handleLogout}><img src="/LogOut.png" alt="Log Out" height="40"/>Logout</NavLink> :
             <NavLink className="nav-item nav-link" to="/login"><img src="/LogIn.png" alt="Log In" height="40"/>Login</NavLink> }
