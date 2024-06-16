@@ -1,6 +1,7 @@
 
 import { signInWithGoogle } from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
+import "../component.css";
 
 function GoogleSignIn() {
     const navigate = useNavigate();
@@ -12,20 +13,7 @@ function GoogleSignIn() {
       <>
         <button
           onClick={handleGoogleSignIn}
-          style={{
-            backgroundColor: "white",
-            color: "black",
-            border: "none",
-            borderRadius: "5px",
-            boxShadow: "0px 0px 6px #00000029",
-            padding: "10px 20px",
-            fontSize: "1em",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "10px",
-          }}
+            className='google-signin-button'
         >
           <img
             src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
