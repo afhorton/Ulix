@@ -36,7 +36,7 @@ function SignUp () {
               email
             });
       
-            navigate("/login");
+            navigate("/");
             // ...
           })
           .catch((error) => {
