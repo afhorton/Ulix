@@ -4,6 +4,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import app from '../firebase-config';
+import GoogleSignIn from '../components/GoogleSignIn';
 
 
 
@@ -54,6 +55,7 @@ function SignUp () {
           
               <h1 className="mb-4"> <img src="/SignUp.png" alt="Ulix" height="100"/>Signup</h1>
               <h2 className="mb-4">Begin Your Odyssey!</h2>
+                <GoogleSignIn />
               <form className="w-50" onSubmit={handleSignUp}>
                   <div className="form-group">
                       <label htmlFor="email">Email Address</label>

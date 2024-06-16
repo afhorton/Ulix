@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { firebaseAuth } from '../firebase-config';
+import GoogleSignIn from '../components/GoogleSignIn';
 
 function Login() {
 const navigate = useNavigate();
@@ -29,6 +30,7 @@ const handleLogin = (e) => {
     return (
         <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
             <h1 className="mb-4"><img src="/LogIn.png" alt="Ulix" height="100"/>Login</h1>
+            <GoogleSignIn />
             <form className="w-50" onSubmit={handleLogin}>
                 <div className="form-group">
                     <label htmlFor="email-address">Email Address</label>
