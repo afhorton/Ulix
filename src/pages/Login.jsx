@@ -31,6 +31,7 @@ const handleLogin = (e) => {
         <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
             <h1 className="mb-4"><img src="/LogIn.png" alt="Ulix" height="100"/>Login</h1>
             <GoogleSignIn />
+            <h5 className="mt-4">- OR -</h5>
             <form className="w-50" onSubmit={handleLogin}>
                 <div className="form-group">
                     <label htmlFor="email-address">Email Address</label>

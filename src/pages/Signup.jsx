@@ -51,55 +51,58 @@ function SignUp () {
 
     return (
       <>
-      <main className="container vh-100 d-flex flex-column justify-content-center align-items-center">
-          
-              <h1 className="mb-4"> <img src="/SignUp.png" alt="Ulix" height="100"/>Signup</h1>
-              <h2 className="mb-4">Begin Your Odyssey!</h2>
-                <GoogleSignIn />
-              <form className="w-50" onSubmit={handleSignUp}>
-                  <div className="form-group">
-                      <label htmlFor="email">Email Address</label>
-                      <input
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                          placeholder="Email address"
-                          className="form-control"
-                      />
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="username">Username</label>
-                      <input
-                          type="text"
-                          value={username}
-                          onChange={(e) => setUsername(e.target.value)}
-                          required
-                          placeholder="Username"
-                          className="form-control"
-                      />
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="password">Password</label>
-                      <input
-                          type="password"
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                          required
-                          placeholder="Password"
-                          className="form-control"
-                      />
-                  </div>
-                  <button type="submit" className="btn btn-primary">
-                      Sign up
-                  </button>
-                  <p className="mt-3">
-                      Already begun your odyssey? <NavLink to="/login">Sign in</NavLink>
-                  </p>
-              </form>
-          
-      </main>
-  </>
+        <main className="container vh-100 d-flex flex-column justify-content-center align-items-center">
+          <h1 className="mb-4">
+            {" "}
+            <img src="/SignUp.png" alt="Ulix" height="100" />
+            Signup
+          </h1>
+          <h2 className="mb-4">Begin Your Odyssey!</h2>
+          <GoogleSignIn />
+          <h5 className="mt-4">- OR -</h5>
+          <form className="w-50" onSubmit={handleSignUp}>
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="Email address"
+                className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                placeholder="Username"
+                className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="Password"
+                className="form-control"
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Sign up
+            </button>
+            <p className="mt-3">
+              Already begun your odyssey? <NavLink to="/login">Sign in</NavLink>
+            </p>
+          </form>
+        </main>
+      </>
     );
 };
 
