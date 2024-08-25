@@ -21,23 +21,55 @@ import PrivateRoute from './pages/PrivateRoute';
 
 function App() {
   const user = useContext(UserProvider);
-  const router = createBrowserRouter([
-   { element: <Layout />,
-   children:[
-    {path: "/", element: <Home />, errorElement: <Error /> },
-    {path: "/storyList", element: <StoryList/> , errorElement: <Error />},
-    {path: "/storyForm", element: <StoryForm/> , errorElement: <Error /> },
-    {path:"/login", element: <Login/> , errorElement: <Error />},
-    {path: "/signup", element: <SignUp/>, errorElement: <Error />},
-    {path: "/about", element: <About/>, errorElement: <Error />},
-    {path: "/editStory/:postId", element: <EditStory/>, errorElement: <Error />},
-    {path: "/story/:postId", element: <Story/>, errorElement: <Error />},
-    {path: "/publishedList", element: <PublishedList/>, errorElement: <Error />},
-    {path: "/publishedStory/:id", element: <PublishedStory/>, errorElement: <Error />},
-    {path: "/admin", element: <PrivateRoute />, errorElement: <Error />}
-   ],
-  },
-  ])
+  const router = createBrowserRouter(
+    [
+      {
+        element: <Layout />,
+        children: [
+          { path: "/", element: <Home />, errorElement: <Error /> },
+          {
+            path: "/storyList",
+            element: <StoryList />,
+            errorElement: <Error />,
+          },
+          {
+            path: "/storyForm",
+            element: <StoryForm />,
+            errorElement: <Error />,
+          },
+          { path: "/login", element: <Login />, errorElement: <Error /> },
+          { path: "/signup", element: <SignUp />, errorElement: <Error /> },
+          { path: "/about", element: <About />, errorElement: <Error /> },
+          {
+            path: "/editStory/:postId",
+            element: <EditStory />,
+            errorElement: <Error />,
+          },
+          {
+            path: "/story/:postId",
+            element: <Story />,
+            errorElement: <Error />,
+          },
+          {
+            path: "/publishedList",
+            element: <PublishedList />,
+            errorElement: <Error />,
+          },
+          {
+            path: "/publishedStory/:id",
+            element: <PublishedStory />,
+            errorElement: <Error />,
+          },
+          {
+            path: "/admin",
+            element: <PrivateRoute />,
+            errorElement: <Error />,
+          },
+        ],
+      },
+    ],
+    { basename: "/ulix" }
+  );
 
   return (
     <>
