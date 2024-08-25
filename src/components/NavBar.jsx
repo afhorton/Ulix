@@ -73,25 +73,32 @@ function NavBar() {
           <div className="navbar-nav">
             {user ? (
               <NavLink className="nav-item nav-link active" to="/storyList">
-                <img src="/StoryList.png" alt="New Story" height="40" />
+                <img
+                src={`${import.meta.env.BASE_URL}StoryList.png`}
+                alt="New Story" 
+                height="40" />
                 Your Stories
               </NavLink>
             ) : null}
             {user ? null : (
               <NavLink className="nav-item nav-link active" to="/about">
-                <img src="/About.png" alt="About" height="40" />
+                <img 
+                src={`${import.meta.env.BASE_URL}About.png`}
+                alt="About" height="40" />
                 About
               </NavLink>
             )}
             {user ? (
               <NavLink className="nav-item nav-link" to="/storyForm">
-                <img src="/StoryForm.png" alt="New Story" height="40" />
+                <img 
+                src={`${import.meta.env.BASE_URL}StoryForm.png`}
+                alt="New Story" height="40" />
                 New Story
               </NavLink>
             ) : null}
             <NavLink className="nav-item nav-link" to="/publishedList">
               <img
-                src="/PublishedList.png"
+                src={`${import.meta.env.BASE_URL}PublishedList.png`}
                 alt="Published Stories"
                 height="40"
               />
@@ -99,14 +106,22 @@ function NavBar() {
             </NavLink>
             {user ? null : (
               <NavLink className="nav-item nav-link" to="/signup">
-                <img src="/SignUp.png" alt="Sign Up" height="40" />
+                <img
+                  src={`${import.meta.env.BASE_URL}SignUp.png`}
+                  alt="Sign Up"
+                  height="40"
+                />
                 Sign Up
               </NavLink>
             )}
             {/* { user && user.username === 'admin' ? <NavLink className="nav-item nav-link" to="/admin"><img src="/AdminPage.png" alt="Admin" height="40"/>Admin</NavLink> : null } */}
             {user && isAdmin ? (
               <NavLink className="nav-item nav-link" to="/admin">
-                <img src="/AdminPage.png" alt="Admin" height="40" />
+                <img
+                  src={`${import.meta.env.BASE_URL}AdminPage.png`}
+                  alt="Admin"
+                  height="40"
+                />
                 Admin
               </NavLink>
             ) : null}
@@ -116,12 +131,18 @@ function NavBar() {
                 to="#"
                 onClick={handleLogout}
               >
-                <img src="/LogOut.png" alt="Log Out" height="40" />
+                <img 
+                src={`${import.meta.env.BASE_URL}LogOut.png`}
+                alt="Log Out" 
+                height="40" />
                 Logout
               </NavLink>
             ) : (
               <NavLink className="nav-item nav-link" to="/login">
-                <img src="/LogIn.png" alt="Log In" height="40" />
+                <img 
+                src={`${import.meta.env.BASE_URL}LogIn.png`}
+                alt="Log In" 
+                height="40" />
                 Login
               </NavLink>
             )}
