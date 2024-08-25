@@ -44,13 +44,25 @@ function NavBar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         {/* { user ? <NavLink className="navbar-brand" to="/storyList"><img src="public/UlixLogo1NoBG.png" alt="Ulix" height="40"/></NavLink> : */}
         <NavLink className="navbar-brand mx-2" to="/">
-          <img src="/UlixLogo1NoBG.png" alt="Ulix" height="40" />
+          <img
+            src={`${import.meta.env.BASE_URL}UlixLogo1NoBG.png`}
+            alt="Ulix"
+            height="40"
+          />
         </NavLink>
         <div className="nav-item">
           {user ? (
-            <img src="/Member.png" alt="Member" height="40" />
+            <img
+              src={`${import.meta.env.BASE_URL}Member.png`}
+              alt="Member"
+              height="40"
+            />
           ) : (
-            <img src="/Guest.png" alt="Guest" height="40" />
+            <img
+              src={`${import.meta.env.BASE_URL}Guest.png`}
+              alt="Guest"
+              height="40"
+            />
           )}
           Hello, {user ? user.username : "Guest"}
         </div>
