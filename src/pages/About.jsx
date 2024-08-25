@@ -12,14 +12,27 @@ function About () {
         navigate('/login')
     }
     return (
-        <>
+      <>
         <main className="container vh-100 d-flex flex-column justify-content-center align-items-center">
-            <h1><img src="public/About.png" alt="About" height="100"/>About</h1>
-            <div className="text-center">
-                <p>
-                    Welcome to Ulix, a vibrant platform where individuals become storytellers. Here, you're the architect of your narrative, empowered to craft, share, and inspire. Whether you're an expert or an enthusiast, Ulix is your canvas to express, educate, and connect with the world. Unleash your creativity, share your passion, and join a community dedicated to telling compelling stories.
-                </p>
-                {/* <p>
+          <h1>
+            <img
+              src={`${import.meta.env.BASE_URL}/About.png`}
+              alt="About"
+              height="100"
+            />
+            About
+          </h1>
+          <div className="text-center">
+            <p>
+              Welcome to Ulix, a vibrant platform where individuals become
+              storytellers. Here, you're the architect of your narrative,
+              empowered to craft, share, and inspire. Whether you're an expert
+              or an enthusiast, Ulix is your canvas to express, educate, and
+              connect with the world. Unleash your creativity, share your
+              passion, and join a community dedicated to telling compelling
+              stories.
+            </p>
+            {/* <p>
                     Haven't started your odyssey? <a onClick={goToSignUp} className="text-primary">Sign Up</a>
                 </p>
                 <p>
@@ -27,11 +40,10 @@ function About () {
                 </p>
                 <button onClick={goToSignUp} className="btn btn-primary mr-2">Sign Up</button>
                 <button onClick={goToLogin} className="btn btn-secondary">Login</button> */}
-            </div>
+          </div>
         </main>
-    </>
-
-    )
+      </>
+    );
 
 
 }
