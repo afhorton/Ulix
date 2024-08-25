@@ -78,7 +78,11 @@ function StoryList() {
   return (
     <div className="container">
       <h2 className="my-4">
-        <img src="/StoryList.png" alt="About" height="100" />
+        <img
+          src={`${import.meta.env.BASE_URL}StoryList.png`}
+          alt="Story List"
+          height="100"
+        />
         Your Stories
       </h2>
       <div className="row">

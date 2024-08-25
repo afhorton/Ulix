@@ -54,29 +54,38 @@ function StoryForm () {
 
     return (
       <div className="container vh-100 d-flex flex-column justify-content-center align-items-center">
-      <h2 className="mb-4"><img src="/StoryForm.png" alt="About" height="100"/>Create New Story</h2>
-      <form className="w-50" onSubmit={handleSubmit}>
+        <h2 className="mb-4">
+          <img
+            src={`${import.meta.env.BASE_URL}StoryForm.png`}
+            alt="About"
+            height="100"
+          />
+          Create New Story
+        </h2>
+        <form className="w-50" onSubmit={handleSubmit}>
           <div className="form-group">
-              <label htmlFor="title">Title:</label>
-              <input 
-                  type="text"
-                  value={title}
-                  onChange={handleTitleChange}
-                  className="form-control"
-              />
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              value={title}
+              onChange={handleTitleChange}
+              className="form-control"
+            />
           </div>
           <div className="form-group">
-              <label htmlFor="content">Content:</label>
-              <textarea 
-                  value={content} 
-                  onChange={handleContentChange} 
-                  className="form-control"
-              />
+            <label htmlFor="content">Content:</label>
+            <textarea
+              value={content}
+              onChange={handleContentChange}
+              className="form-control"
+            />
           </div>
-          <button type="submit" className="btn btn-primary mt-3">Create Post</button>
-      </form>
-  </div>
-    )
+          <button type="submit" className="btn btn-primary mt-3">
+            Create Post
+          </button>
+        </form>
+      </div>
+    );
 };
 
 export default StoryForm;

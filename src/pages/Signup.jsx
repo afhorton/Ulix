@@ -54,7 +54,11 @@ function SignUp () {
         <main className="container vh-100 d-flex flex-column justify-content-center align-items-center">
           <h1 className="mb-4">
             {" "}
-            <img src="/SignUp.png" alt="Ulix" height="100" />
+            <img
+              src={`${import.meta.env.BASE_URL}SignUp.png`}
+              alt="SignUp"
+              height="100"
+            />
             Signup
           </h1>
           <h2 className="mb-4">Begin Your Odyssey!</h2>

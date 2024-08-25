@@ -24,19 +24,34 @@ function PublishedStory() {
     }
 
     return (
-        <div className="container">
-            <h2 className="my-4"><img src="/ReadPage.png" alt="Story" height="100"/>{post.title}</h2>
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="card bg-light mb-3 shadow-sm">
-                        <div className="card-body">
-                            <p className="card-text">{post.content}</p>
-                        </div>
-                    </div>
-                </div>
+      <div className="container">
+        <h2 className="my-4">
+          <img
+            src={`${import.meta.env.BASE_URL}ReadPage.png`}
+            alt="Story"
+            height="100"
+          />
+          {post.title}
+        </h2>
+        <div className="row">
+          <div className="col-md-12">
+            <div className="card bg-light mb-3 shadow-sm">
+              <div className="card-body">
+                <p className="card-text">{post.content}</p>
+              </div>
             </div>
-            <button className="btn btn-primary" onClick={handleBackButton}><img src="/BackButton.png" alt="BackButton" height="30" className='mx-1'/>Back to Published Stories</button>
+          </div>
         </div>
+        <button className="btn btn-primary" onClick={handleBackButton}>
+          <img
+            src="/BackButton.png"
+            alt="BackButton"
+            height="30"
+            className="mx-1"
+          />
+          Back to Published Stories
+        </button>
+      </div>
     );
 }
 
