@@ -68,7 +68,7 @@ function App() {
         ],
       },
     ],
-    { basename: "/ulix" }
+    { basename: '/ulix' }
   );
 
   return (
